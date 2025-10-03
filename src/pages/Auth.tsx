@@ -8,6 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useToast } from '@/hooks/use-toast';
 import { api } from '@/lib/api';
 import { FileText } from 'lucide-react';
+import DemoNotice from '@/components/DemoNotice';
 
 export default function Auth() {
   const navigate = useNavigate();
@@ -63,16 +64,18 @@ export default function Auth() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/10 via-background to-secondary/10 p-4">
-      <Card className="w-full max-w-md">
-        <CardHeader className="text-center">
-          <div className="flex justify-center mb-4">
-            <div className="p-3 bg-primary rounded-lg">
-              <FileText className="h-8 w-8 text-primary-foreground" />
+      <div className="w-full max-w-md space-y-4">
+        <DemoNotice />
+        <Card className="w-full">
+          <CardHeader className="text-center">
+            <div className="flex justify-center mb-4">
+              <div className="p-3 bg-primary rounded-lg">
+                <FileText className="h-8 w-8 text-primary-foreground" />
+              </div>
             </div>
-          </div>
-          <CardTitle className="text-2xl">FileScribe</CardTitle>
-          <CardDescription>Manage your documents securely</CardDescription>
-        </CardHeader>
+            <CardTitle className="text-2xl">FileScribe</CardTitle>
+            <CardDescription>Manage your documents securely</CardDescription>
+          </CardHeader>
         <CardContent>
           <Tabs defaultValue="login" className="w-full">
             <TabsList className="grid w-full grid-cols-2">
@@ -145,7 +148,8 @@ export default function Auth() {
             </TabsContent>
           </Tabs>
         </CardContent>
-      </Card>
+        </Card>
+      </div>
     </div>
   );
 }
